@@ -1,0 +1,44 @@
+# Urgh. Need to transition to tmux already.
+#
+# Fix for residual text
+altscreen on
+
+# custom statusbar
+hardstatus off
+hardstatus alwayslastline
+#hardstatus string '%{= kg}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{Y}%c %{g}]'
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+
+# Turn welcome message off
+startup_message off
+
+# disable vbell (so wm urgency hints can work from within screen)
+vbell off
+
+msgwait 1
+termcapinfo xterm* ti@:te@
+altscreen on
+
+# Increase the scrollback buffer
+defscrollback 1500
+
+# programs to autostart on screen startup
+screen -t robots 0
+screen -t unicorns 1
+screen -t aluminum 2
+screen -t scotch 3
+screen -t fieldmouse 4
+
+select 5
+
+# for mutt transparency
+defbce on
+
+# set terminal name
+term rxvt-256color
+
+# message display time (seconds)
+msgwait 2
+
+# 256 colour support for urxvt
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'

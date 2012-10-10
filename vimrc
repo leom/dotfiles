@@ -1,66 +1,97 @@
-filetype off                   " required!
-source $VIMRUNTIME/vimrc_example.vim
-behave mswin
+set nocompatible
+"source $VIMRUNTIME/vimrc_example.vim
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
+let g:ctrlp_max_files = 90000
+let g:ctrlp_max_height = 20
+let g:ctrlp_clear_cache_on_exit = 1
+
+" doesn't work with 7.0, need to git reset --hard cdb31d423c996db298db57d69999f7c899188c9d
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 syntax on
-set ai
-set backupdir=~/tmp/leo_vim
 set bs=2
-set clipboard+=unnamed
-set guifont=Monaco:h8:cANSI
-set guioptions-=T
-set ignorecase
-set incsearch
-set keymodel=""
-set nocompatible
-set nocp
-set nowrap
+set et
 set nu
-set numberwidth=5
-set ruler
-set showmatch
-set si
+set sts=2
 set sw=4
 set ts=4
 set vb
 
+set autoindent
+set backspace=indent,eol,start
+set backupdir=~/.backups
+set cindent
+set ignorecase
+set incsearch
+set foldmethod=marker
+set nocompatible
+set nowrap
+set numberwidth=5
+set ruler
+set scrolljump=5
+set scrolloff=3
+set showcmd
+set showmatch
+set showtabline=2
+set smartindent
+set splitright
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
+
+
+let g:netrw_keepdir=0
+let g:explVertical=1
+let g:explStartRight=1
+let g:explWinSize=25
+let g:Powerline_symbols = 'fancy'
+let mapleader=","
+
+noremap <C-B> :!php -l %<CR>
+
 nmap <silent> <C-N> :silent noh<CR>
 
-nmap ,j :tabprevious<CR>
-nmap ,l :tabnext<CR>
-map ,j :tabprevious<CR>
-map ,l :tabnext<CR>
-imap ,j <Esc>:tabprevious<CR>i
-imap ,l <Esc>:tabnext<CR>i
+nmap <leader>j :tabprevious<CR>
+nmap <leader>l :tabnext<CR>
+map <leader>j :tabprevious<CR>
+map <leader>l :tabnext<CR>
+imap <leader>j <Esc>:tabprevious<CR>i
+imap <leader>l <Esc>:tabnext<CR>i
 nmap <C-t> :tabnew<CR>
 imap <C-t> <Esc>:tabnew<CR>
 
-map ,e :execute 'NERDTreeToggle "'.getcwd().'"'<CR>
 map <C-l> :buffers<CR>
-map <C-Space> :bn<CR>
-map <C-BackSpace> :bp<CR>
+nmap <C-S-f> :Ack<space>
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 0
+map <leader>e :NERDTreeToggle<CR>
 
 if has("autocmd")
-  " PHP specific fixes
-  " highlights interpolated variables in sql strings and does sql-syntax highlighting. yay
-  autocmd FileType php let php_sql_query=1
-  " does exactly that. highlights html inside of php strings
-  autocmd FileType php let php_htmlInStrings=1
-
-  " settings for cake
-  au BufEnter,BufRead,BufNewFile  *.ctp set filetype=php ai
-
+	autocmd BufEnter *.ctp set syn=php
+	autocmd BufEnter *.module set syn=php
   autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
 endif
 
-colo zellner
+colo peachpuff
+
+"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" This function determines, wether we are on the start of the line text (then tab indents) or
+" if we want to try autocompletion
+function InsertTabWrapper()
+        let col = col('.') - 1
+        if !col || getline('.')[col - 1] !~ '\k'
+                return "\<tab>"
+        else
+                return "\<c-p>"
+        endif
+endfunction
