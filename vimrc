@@ -77,9 +77,9 @@ let g:ctrlp_working_path_mode = 0
 map <leader>e :NERDTreeToggle<CR>
 
 if has("autocmd")
-	autocmd BufEnter *.ctp set syn=php
-	autocmd BufEnter *.module set syn=php
-  autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
+    autocmd BufEnter *.ctp set syn=php
+    autocmd BufEnter *.module set syn=php
+    autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
 endif
 
 colo peachpuff
