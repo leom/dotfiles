@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
+
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
 let g:ctrlp_max_files = 90000
 let g:ctrlp_max_height = 20
@@ -14,6 +15,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 " doesn't work with 7.0, need to git reset --hard cdb31d423c996db298db57d69999f7c899188c9d
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Syntastic' 
 
 filetype plugin indent on
 syntax on
@@ -48,13 +50,16 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
 
+set t_Co=256
 
 let g:netrw_keepdir=0
 let g:explVertical=1
 let g:explStartRight=1
 let g:explWinSize=25
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 let mapleader=","
+
+let g:flake8_max_line_length=125
 
 noremap <C-B> :!php -l %<CR>
 
@@ -77,21 +82,21 @@ let g:ctrlp_working_path_mode = 0
 map <leader>e :NERDTreeToggle<CR>
 
 if has("autocmd")
-	autocmd BufEnter *.ctp set syn=php
-	autocmd BufEnter *.module set syn=php
-  autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
+    autocmd BufEnter *.ctp set syn=php
+    autocmd BufEnter *.module set syn=php
+    autocmd BufWritePost *.py call Flake8()
+    autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
 endif
 
-colo peachpuff
 
 "inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
 function InsertTabWrapper()
-        let col = col('.') - 1
-        if !col || getline('.')[col - 1] !~ '\k'
-                return "\<tab>"
-        else
-                return "\<c-p>"
-        endif
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
 endfunction
