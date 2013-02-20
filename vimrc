@@ -19,7 +19,7 @@ Bundle 'Syntastic'
 
 filetype plugin indent on
 syntax on
-set bs=4
+set bs=
 set et
 set nu
 set sts=4
