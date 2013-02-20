@@ -19,10 +19,10 @@ Bundle 'Syntastic'
 
 filetype plugin indent on
 syntax on
-set bs=2
+set bs=4
 set et
 set nu
-set sts=2
+set sts=4
 set sw=4
 set ts=4
 set vb
@@ -59,7 +59,8 @@ let g:explWinSize=25
 let g:Powerline_symbols = 'unicode'
 let mapleader=","
 
-let g:flake8_max_line_length=125
+let g:syntastic_python_checker="flake8"
+let g:syntastic_python_checker_args="--ignore=E501,"
 
 noremap <C-B> :!php -l %<CR>
 
