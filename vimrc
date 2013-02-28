@@ -20,33 +20,34 @@ Bundle 'Syntastic'
 filetype plugin indent on
 syntax on
 set bs=
-set et
 set nu
-set sts=4
-set sw=4
-set ts=4
-set vb
 
 set autoindent
 set backspace=indent,eol,start
 set backupdir=~/.backups
 set cindent
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set expandtab
+set foldmethod=marker
 set ignorecase
 set incsearch
-set foldmethod=marker
+set laststatus=2   " Always show the statusline
 set nocompatible
 set nowrap
 set numberwidth=5
 set ruler
 set scrolljump=5
 set scrolloff=3
+set shiftwidth=4
 set showcmd
 set showmatch
 set showtabline=2
 set smartindent
+set smarttab
+set softtabstop=4
 set splitright
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
+set tabstop=4
+set visualbell
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
 
@@ -85,7 +86,7 @@ map <silent> <leader>e :NERDTreeToggle<CR>
 if has("autocmd")
     autocmd BufEnter *.ctp set syn=php
     autocmd BufEnter *.module set syn=php
-    autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:< ts=4 sw=4 et sta sts list    " Python
+    autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:<  list" Python
 endif
 
 
