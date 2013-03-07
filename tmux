@@ -28,6 +28,15 @@ bind Space next-window
 unbind BSpace
 bind BSpace previous-window
 
+# pane movement shouldn't be a pain (BOOO)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+set-option -g pane-border-fg white
+set-option -g pane-active-border-fg green
+unbind ^A
+bind ^A select-pane -t :.+
 
 # Options
 set-option -sg escape-time 50  # this makes vim fucking awful to use
@@ -44,9 +53,10 @@ set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
 set-option -g status-bg colour234
 set-option -g status-fg colour0
 # Left shows the session name, in blue
-set-option -g status-left '[#I:#W]'
+set-option -g status-left '[#I:(#P) #W]'
 set-option -g status-left-bg default
 set-option -g status-left-fg colour74
+set-option -g status-left-length 40 
 # Right is some CPU stats, so terminal green
 set-option -g status-right-bg default
 set-option -g status-right-fg colour71
