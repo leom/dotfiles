@@ -20,8 +20,8 @@ bind-key a send-prefix
 
 # I miss ^A^A and ^ASpace
 # standard Screen shortcuts
-unbind C-a
-bind C-a last-window
+unbind C-j
+bind C-A last-window
 
 unbind Space
 bind Space next-window
@@ -35,8 +35,8 @@ bind k select-pane -U
 bind l select-pane -R
 set-option -g pane-border-fg white
 set-option -g pane-active-border-fg green
-unbind ^A
-bind ^A select-pane -t :.+
+#unbind ^A
+#bind ^A select-pane -t :.+
 
 # Options
 set-option -sg escape-time 50  # this makes vim fucking awful to use
