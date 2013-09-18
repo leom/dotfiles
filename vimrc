@@ -49,6 +49,10 @@ set splitright
 set tabstop=4
 set visualbell
 
+set guioptions=-m
+set guioptions=-T
+set guioptions=-r
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux
 
 set t_Co=256
