@@ -16,6 +16,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Syntastic' 
+Bundle 'myusuf3/numbers.vim'
 
 filetype plugin indent on
 syntax on
