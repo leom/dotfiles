@@ -56,7 +56,7 @@ set-option -g status-fg '#ffffff'
 # Left shows the session name
 set-option -g status-left '[#I:(#P) #W]'
 set-option -g status-left-bg default
-set-option -g status-left-fg '#ffcc00'
+set-option -g status-left-fg 'cyan'
 set-option -g status-left-length 40 
 
 # Right is some CPU stats, so terminal red
@@ -66,7 +66,7 @@ set-option -g status-right-fg 'cyan'
 # Windows are medium gray; current window is white
 set-window-option -g window-status-fg colour244
 set-window-option -g window-status-current-fg '#ffffff'
-set-window-option -g window-status-current-bg '#ffcc00'
+set-window-option -g window-status-current-bg 'magenta'
 #
 # Trim window titles to a reasonable length
 set-window-option -g window-status-format '#[fg=yellow]#F#I#[default] #32W '
