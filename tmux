@@ -50,20 +50,23 @@ set-option -g set-titles-string '[#S:#I #H] #W'  # use screen title
 # COLORS.
 # For reference, the xterm color cube points are: 00, 5F, 87, AF, D7, FF
 # Status bar has a dim gray background
-set-option -g status-bg colour234
-set-option -g status-fg colour0
-# Left shows the session name, in blue
+set-option -g status-bg '#000000'
+set-option -g status-fg '#ffffff'
+
+# Left shows the session name
 set-option -g status-left '[#I:(#P) #W]'
 set-option -g status-left-bg default
-set-option -g status-left-fg colour74
+set-option -g status-left-fg '#ffcc00'
 set-option -g status-left-length 40 
-# Right is some CPU stats, so terminal green
+
+# Right is some CPU stats, so terminal red
 set-option -g status-right-bg default
-set-option -g status-right-fg colour71
+set-option -g status-right-fg 'cyan'
+
 # Windows are medium gray; current window is white
 set-window-option -g window-status-fg colour244
 set-window-option -g window-status-current-fg '#ffffff'
-set-window-option -g window-status-current-bg '#000000'
+set-window-option -g window-status-current-bg '#ffcc00'
 #
 # Trim window titles to a reasonable length
 set-window-option -g window-status-format '#[fg=yellow]#F#I#[default] #32W '
