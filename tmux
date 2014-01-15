@@ -10,6 +10,10 @@
 # https://github.com/eevee/rc/blob/master/.tmux.conf
 #------------------------------
 
+# brew install reattach-to-user-namespace
+# http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
+set-option -g default-command "reattach-to-user-namespace -l bash"
+
 # Highlight active window
 set-window-option -g window-status-current-bg red
 

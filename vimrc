@@ -64,6 +64,7 @@ let g:explStartRight=1
 let g:explWinSize=25
 let g:Powerline_symbols = 'unicode'
 let mapleader=","
+let NERDTreeIgnore=['\.pyc$']
 
 let g:syntastic_python_checker="flake8"
 let g:syntastic_python_checker_args="--ignore=E501,"
