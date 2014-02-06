@@ -10,7 +10,7 @@
 # https://github.com/eevee/rc/blob/master/.tmux.conf
 #------------------------------
 
-# brew install reattach-to-user-namespace
+# brew install reattach-to-user-namespace (osx only)
 # http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
 set-option -g default-command "reattach-to-user-namespace -l bash"
 
