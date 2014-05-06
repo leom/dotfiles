@@ -66,8 +66,8 @@ let g:Powerline_symbols = 'unicode'
 let mapleader=","
 let NERDTreeIgnore=['\.pyc$']
 
-let g:syntastic_python_checker="flake8"
-let g:syntastic_python_checker_args="--ignore=E501,"
+"let g:syntastic_python_checker="flake8"
+"let g:syntastic_python_checker_args="--ignore=E501,"
 
 noremap <C-B> :!php -l %<CR>
 
