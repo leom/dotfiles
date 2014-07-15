@@ -1,7 +1,6 @@
-source ~/bin/git-prompt.sh
 export EDITOR=vim
 
-export PS1="leo@\h \e[30;1m\w\e[0m\$(__git_ps1)\n\$> "
+export PS1="\u@\h \e[30;1m\w\e[0m\$(__git_ps1)\n\$> "
 
 # just so i don't forget how to do tab completion
 # tab completion for the projects
