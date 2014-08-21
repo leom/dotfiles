@@ -47,8 +47,8 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
-set-option -g pane-border-fg white
-set-option -g pane-active-border-fg green
+set -g pane-active-border-bg white
+set -g pane-border-fg black
 #unbind ^A
 #bind ^A select-pane -t :.+
 
