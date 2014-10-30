@@ -17,6 +17,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Syntastic' 
 Bundle 'myusuf3/numbers.vim'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on
 syntax on
