@@ -1,23 +1,23 @@
 set nocompatible
 "source $VIMRUNTIME/vimrc_example.vim
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Syntastic' 
+Plugin 'myusuf3/numbers.vim'
+Plugin 'fatih/vim-go'
+call vundle#end()
 
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
 let g:ctrlp_max_files = 90000
 let g:ctrlp_max_height = 20
 let g:ctrlp_clear_cache_on_exit = 1
-
-" doesn't work with 7.0, need to git reset --hard cdb31d423c996db298db57d69999f7c899188c9d
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Syntastic' 
-Bundle 'myusuf3/numbers.vim'
-Bundle 'fatih/vim-go'
 
 filetype plugin indent on
 syntax on
