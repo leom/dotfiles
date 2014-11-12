@@ -12,12 +12,21 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Syntastic' 
 Plugin 'myusuf3/numbers.vim'
 Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-fugitive'
+Plugin 'JazzCore/ctrlp-cmatcher'
+
 call vundle#end()
 
-let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
 let g:ctrlp_max_files = 90000
 let g:ctrlp_max_height = 20
 let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+    \ --ignore .git 
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_store
+    \ --ignore "**/*.pyc"
+    \ -g ""'
 
 filetype plugin indent on
 syntax on

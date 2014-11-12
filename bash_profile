@@ -1,5 +1,9 @@
 export EDITOR=vim
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 export PS1="\u@\h \e[30;1m\w\e[0m\$(__git_ps1)\n\$> "
 
 # just so i don't forget how to do tab completion
