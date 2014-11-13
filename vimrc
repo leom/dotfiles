@@ -14,6 +14,7 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-fugitive'
 Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
