@@ -15,6 +15,7 @@ Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-fugitive'
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'godlygeek/tabular'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 
@@ -94,7 +95,7 @@ nmap <C-t> :tabnew<CR>
 imap <C-t> <Esc>:tabnew<CR>
 
 map <C-l> :buffers<CR>
-nmap <C-S-f> :Ack<space>
+map <C-f> :Ag<space>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 0
@@ -103,6 +104,7 @@ map <silent> <leader>e :NERDTreeToggle<CR>
 if has("autocmd")
     autocmd BufEnter *.ctp set syn=php
     autocmd BufEnter *.module set syn=php
+    autocmd BufEnter *.phtml set syn=php
     autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:<  list" Python
 endif
 
