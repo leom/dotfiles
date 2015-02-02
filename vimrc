@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
+Plugin 'groenewege/vim-less'
 
 call vundle#end()
 
