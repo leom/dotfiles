@@ -29,6 +29,8 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore .hg
     \ --ignore .DS_store
     \ --ignore "**/*.pyc"
+    \ --ignore "**/*.min.js"
+    \ --ignore "**/*.min.css"
     \ -g ""'
 
 filetype plugin indent on

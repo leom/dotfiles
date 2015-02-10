@@ -1,3 +1,5 @@
+source ~/bin/tmuxinator.bash
+
 export EDITOR=vim
 source ~/bin/git-prompt.sh
 
