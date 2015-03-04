@@ -42,6 +42,7 @@ set autoindent
 set backspace=indent,eol,start
 set backupdir=~/.backups
 set cindent
+set cursorline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set expandtab
 set foldmethod=marker
@@ -140,6 +141,11 @@ if has("autocmd")
     autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:<  list" Python
 endif
 
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
+augroup END
 
 "inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " This function determines, wether we are on the start of the line text (then tab indents) or
