@@ -8,7 +8,7 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'Syntastic' 
 Plugin 'myusuf3/numbers.vim'
 Plugin 'fatih/vim-go'
@@ -77,9 +77,38 @@ let g:netrw_keepdir=0
 let g:explVertical=1
 let g:explStartRight=1
 let g:explWinSize=25
-let g:Powerline_symbols = 'unicode'
 let mapleader=","
 let NERDTreeIgnore=['\.pyc$']
+let g:airline#extensions#whitespace#checks = []
+let g:airline#extensions#branch#format = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.whitespace = 'Ξ'
+endif
+
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['mode'])
+    let g:airline_section_b = airline#section#create(["%{fnamemodify(getcwd(), ':t')}"])
+    let g:airline_section_c = airline#section#create(['%m', '%t'])
+    let g:airline_section_x = airline#section#create([' '])
+    let g:airline_section_y = airline#section#create(['branch'])
+    let g:airline_section_z = airline#section#create_right(['%l', '%c'])
+endfunction
+
+autocmd VimEnter * call AirlineInit()
 
 "let g:syntastic_python_checker="flake8"
 "let g:syntastic_python_checker_args="--ignore=E501,"
@@ -115,7 +144,7 @@ endif
 "inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
-function InsertTabWrapper()
+function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<tab>"
