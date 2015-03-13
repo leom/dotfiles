@@ -90,6 +90,18 @@ set-window-option -g window-status-current-format '#[fg=yellow] #I#[default] #32
 set -g bell-action any
 set -g visual-bell on
 
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+#
+# # Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+#
+# # Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+#
 # reload tmux.conf
 unbind r
 bind r source-file ~/.tmux.conf
