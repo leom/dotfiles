@@ -105,3 +105,15 @@ bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 # reload tmux.conf
 unbind r
 bind r source-file ~/.tmux.conf
+
+# List of plugins
+# Supports `github_username/repo` or full git repo URLs
+set -g @tpm_plugins '            \
+  tmux-plugins/tpm               \
+  tmux-plugins/tmux-resurrect    \
+  tmux-plugins/tmux-continuum    \
+'
+
+# Initializes TMUX plugin manager.
+# Keep this line at the very bottom of tmux.conf.
+run-shell '~/.tmux/plugins/tpm/tpm'
