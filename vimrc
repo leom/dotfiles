@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 "source $VIMRUNTIME/vimrc_example.vim
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,6 +21,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'joonty/vdebug.git'
 
 call vundle#end()
+filetype plugin indent on
 
 let g:ctrlp_max_files = 90000
 let g:ctrlp_max_height = 20
@@ -34,7 +36,6 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore "**/*.min.css"
     \ -g ""'
 
-filetype plugin indent on
 syntax on
 set bs=
 set nu

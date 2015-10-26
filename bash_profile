@@ -1,13 +1,14 @@
-source ~/bin/tmuxinator.bash
-
 export EDITOR=vim
+export PS1="\u@\h \e[30;1m\w\e[0m\$(__git_ps1)\n\$> "
+
+source ~/bin/tmuxinator.bash
 source ~/bin/git-prompt.sh
+
+alias lockscreen='open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app'
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
-
-export PS1="\u@\h \e[30;1m\w\e[0m\$(__git_ps1)\n\$> "
 
 # just so i don't forget how to do tab completion
 # tab completion for the projects

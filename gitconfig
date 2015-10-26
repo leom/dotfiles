@@ -5,8 +5,20 @@
 	autosetuprebase = always
 [push]
 	default = simple
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
 [merge]
-	tool = vimdiff
+	tool = Kaleidoscope
 
 [alias]
     cp = cherry-pick
@@ -36,3 +48,5 @@
     f = "!git ls-files | grep -i"
 [pull]
 	rebase = true
+[init]
+	templatedir = /Users/leo/.git_template
