@@ -84,8 +84,8 @@ set-window-option -g window-status-current-fg '#ffffff'
 set-window-option -g window-status-current-bg 'magenta'
 #
 # Trim window titles to a reasonable length
-set-window-option -g window-status-format '#[fg=yellow]#F#I#[default] #32W '
-set-window-option -g window-status-current-format '#[fg=yellow] #I#[default] #32W '
+set-window-option -g window-status-format '#[fg=yellow]#F#I#[default] #W '
+set-window-option -g window-status-current-format '#[fg=yellow] #I#[default] #W '
 
 set -g bell-action any
 set -g visual-bell on
