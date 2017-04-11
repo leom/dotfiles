@@ -1,8 +1,6 @@
 [user]
 	name = Leo Mendoza
-	email = leomendoza@gmail.com
-[branch]
-	autosetuprebase = always
+	email = leomendo@amazon.com
 [push]
 	default = simple
 
@@ -46,7 +44,11 @@
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     f = "!git ls-files | grep -i"
-[pull]
-	rebase = true
-[init]
-	templatedir = /Users/leo/.git_template
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+[color]
+	ui = auto
+[core]
+	pager = less -FMRiX
+[amazon]
+	append-cr-url = true
+	pull-request-by-default = true

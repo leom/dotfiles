@@ -12,7 +12,7 @@
 
 # brew install reattach-to-user-namespace (osx only)
 # http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
-set-option -g default-command "reattach-to-user-namespace -l bash"
+set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Highlight active window
 set-window-option -g window-status-current-bg red

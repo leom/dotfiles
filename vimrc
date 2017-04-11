@@ -19,6 +19,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'rking/ag.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'joonty/vdebug.git'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
