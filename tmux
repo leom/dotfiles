@@ -11,8 +11,6 @@
 #------------------------------
 
 # brew install reattach-to-user-namespace (osx only)
-# http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
-set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Highlight active window
 set-window-option -g window-status-current-bg red
@@ -92,14 +90,6 @@ set -g visual-bell on
 
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
-#
-# # Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-#
-# # Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 #
 # reload tmux.conf
