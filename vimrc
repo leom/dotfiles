@@ -20,6 +20,8 @@ Plugin 'rking/ag.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'joonty/vdebug.git'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +71,7 @@ set splitright
 set tabstop=4
 set visualbell
 
+colorscheme earendel
 set guioptions=-m
 set guioptions=-T
 set guioptions=-r
