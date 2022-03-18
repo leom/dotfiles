@@ -1,43 +1,44 @@
 set nocompatible
 filetype off
-"source $VIMRUNTIME/vimrc_example.vim
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/extlib')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'bling/vim-airline'
+Plug 'dense-analysis/ale'
+Plug 'flazz/vim-colorschemes'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'myusuf3/numbers.vim'
+Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'plasticboy/vim-markdown'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'sheerun/vim-polyglot'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tpope/vim-fugitive'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'Syntastic' 
-Plugin 'myusuf3/numbers.vim'
-Plugin 'fatih/vim-go'
-Plugin 'tpope/vim-fugitive'
-Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'godlygeek/tabular'
-Plugin 'rking/ag.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'joonty/vdebug.git'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'sheerun/vim-polyglot'
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 
-let g:ctrlp_max_files = 90000
-let g:ctrlp_max_height = 20
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-    \ --ignore .git 
-    \ --ignore .svn
-    \ --ignore .hg
-    \ --ignore .DS_store
-    \ --ignore "**/*.pyc"
-    \ --ignore "**/*.min.js"
-    \ --ignore "**/*.min.css"
-    \ -g ""'
+let g:ale_fixers = {
+\    'css': ['prettier'],
+\    'javascript': ['prettier'],
+\    'json': ['prettier'],
+\    'scss': ['prettier'],
+\    'sql': ['prettier'],
+\    'ts': ['prettier'],
+\    'tsx': ['prettier'],
+\    'typescript': ['prettier'],
+\    'yaml': ['prettier'],
+\    'yml': ['prettier'],
+\}
 
 syntax on
 set bs=
@@ -55,20 +56,21 @@ set ignorecase
 set incsearch
 set laststatus=2   " Always show the statusline
 set nocompatible
+set nofoldenable
 set nowrap
 set numberwidth=5
 set ruler
 set scrolljump=5
 set scrolloff=3
-set shiftwidth=4
+set shiftwidth=2
 set showcmd
 set showmatch
 set showtabline=2
 set smartindent
 set smarttab
-set softtabstop=4
+set softtabstop=2
 set splitright
-set tabstop=4
+set tabstop=2
 set visualbell
 
 colorscheme earendel
@@ -88,6 +90,7 @@ let mapleader=","
 let NERDTreeIgnore=['\.pyc$']
 let g:airline#extensions#whitespace#checks = []
 let g:airline#extensions#branch#format = 1
+let g:coc_global_extensions = [ 'coc-tsserver' ]
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -121,6 +124,7 @@ autocmd VimEnter * call AirlineInit()
 "let g:syntastic_python_checker_args="--ignore=E501,"
 
 noremap <C-B> :!php -l %<CR>
+inoremap <silent><expr> <c-space> coc#refresh()
 
 nmap <silent> <C-N> :silent noh<CR>
 
@@ -136,16 +140,23 @@ imap <C-t> <Esc>:tabnew<CR>
 map <C-l> :buffers<CR>
 map <C-f> :Ag<space>
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_working_path_mode = 0
+" https://medium.com/swlh/ultimate-vim-typescript-setup-35b5ac5c8c4e
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+let g:fzf_preview_window = 'right:60%'
+nnoremap <C-p> :Files<Cr>
 map <silent> <leader>e :NERDTreeToggle<CR>
 
-if has("autocmd")
-    autocmd BufEnter *.ctp set syn=php
-    autocmd BufEnter *.module set syn=php
-    autocmd BufEnter *.phtml set syn=php
-    autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:<  list" Python
-endif
+autocmd BufEnter *.ctp set syn=php
+autocmd BufEnter *.module set syn=php
+autocmd BufEnter *.phtml set syn=php
+autocmd FileType python set listchars=tab:>-,trail:~,extends:>,precedes:<  list" Python
+autocmd BufRead,BufNewFile *.md setlocal textwidth=72
+autocmd BufEnter *.{jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{jsx,ts,tsx} :syntax sync clear
 
 augroup BgHighlight
     autocmd!
