@@ -13,7 +13,7 @@
 # brew install reattach-to-user-namespace (osx only)
 
 # Highlight active window
-set-window-option -g window-status-current-bg red
+set-window-option -g window-status-current-style bg=red
 
 # Switch me back to ^A, thanks
 set-option -g prefix C-a
@@ -45,9 +45,8 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
-set -g pane-active-border-bg white
-set -g pane-active-border-fg green
-set -g pane-border-fg white
+set -g pane-active-border-style bg=white,fg=green
+set -g pane-border-style fg=white
 #unbind ^A
 #bind ^A select-pane -t :.+
 
@@ -68,18 +67,14 @@ set-option -g status-fg '#ffffff'
 
 # Left shows the session name
 set-option -g status-left '[#I:(#P) #W]'
-set-option -g status-left-bg default
-set-option -g status-left-fg 'cyan'
+set-option -g status-left-style fg='cyan'
 set-option -g status-left-length 40 
 
 # Right is some CPU stats, so terminal red
-set-option -g status-right-bg default
-set-option -g status-right-fg 'cyan'
+set-option -g status-right-style fg='cyan'
 
 # Windows are medium gray; current window is white
-set-window-option -g window-status-fg colour244
-set-window-option -g window-status-current-fg '#ffffff'
-set-window-option -g window-status-current-bg 'magenta'
+set-window-option -g window-status-current-style fg='#ffffff',bg='magenta'
 #
 # Trim window titles to a reasonable length
 set-window-option -g window-status-format '#[fg=yellow]#F#I#[default] #W '
